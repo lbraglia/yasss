@@ -1,14 +1,17 @@
 [project]
 name = "yasss"
-version = "0.1.1"
+version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [
     { name = "Luca Braglia", email = "lbraglia@gmail.com" }
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.13.5"
 dependencies = []
 
+[project.scripts]
+yasss = "yasss:main"
+
 [build-system]
-requires = ["uv_build>=0.8.15,<0.9.0"]
+requires = ["uv_build>=0.10.2,<0.11.0"]
 build-backend = "uv_build"
