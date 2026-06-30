@@ -14,5 +14,8 @@ lint:
 format:
 	uv run ruff format
 
+type-check:
+	uv run ty check
+
 upload:
 	rm -rf dist/* && uv build . && uv publish dist/* --verbose
