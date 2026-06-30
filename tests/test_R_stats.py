@@ -1,8 +1,12 @@
-import math
 import pytest
-from yasss.validation import get_validation_data
+from yasss.validation import from_file, compare
 
 
-@pytest.mark.parametrize(**get_validation_data("power_prop_test"))
+@pytest.mark.parametrize(**from_file("power_prop_test"))
 def test_power_prop_test(p1, p2, sig_level, power, expected):
-    assert math.isclose(p1 + 0.1, p2)
+    # fake test
+    expected = p2
+    obtained = p1 + 0.1
+    # # one day
+    # obtained = Procedure(p1, p2, sig_level, power).calc()
+    compare(expected, obtained)
