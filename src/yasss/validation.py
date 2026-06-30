@@ -36,12 +36,8 @@ def from_file(fname):
         data = list(csv.DictReader(csvfile, quoting=csv.QUOTE_NONNUMERIC))
         argnames = ", ".join(list(data[0].keys()))
         argvalues = [tuple(row.values()) for row in data]
-        ids = [", ".join(tuple(f"{k}={v}"for k, v in row.items())) for row in data]
-        return {
-            "argnames": argnames,
-            "argvalues": argvalues,
-            "ids": ids
-        }
+        ids = [", ".join(tuple(f"{k}={v}" for k, v in row.items())) for row in data]
+        return {"argnames": argnames, "argvalues": argvalues, "ids": ids}
 
 
 def compare(expected, obtained):
