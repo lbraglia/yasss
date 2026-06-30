@@ -8,11 +8,11 @@ repl:
 tests:
 	uv run pytest -v
 
-ty:
-	uv run ty check
-
-ruff:
+lint:
 	uv run ruff check
+
+format:
+	uv run ruff format
 
 upload:
 	rm -rf dist/* && uv build . && uv publish dist/* --verbose
