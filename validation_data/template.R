@@ -1,0 +1,17 @@
+source("import.R")
+
+p1 <- seq(0.05, 0.55, by = 0.10)
+cases <- data.frame(
+  p1 = p1,
+  p2 = p1 + 0.1,
+  sig.level = 0.05,
+  power = 0.8)
+
+ss_estimator <- function(x) {
+  power.prop.test(p1=x[1], p2=x[2], sig.level=x[3], power=x[4])$n
+}
+
+cases$expected <- apply(cases, 1, ss_estimator)
+
+export(cases, "power_prop_test")
+
