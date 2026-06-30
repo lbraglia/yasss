@@ -2,8 +2,11 @@
 
 default: tests
 
+repl:
+	uv run python
+
 tests:
-	uv run pytest
+	uv run pytest -v
 
 ty:
 	uv run ty check
